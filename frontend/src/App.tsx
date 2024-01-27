@@ -1,11 +1,16 @@
-import './App.css'
+import React from 'react';
+import Header from './components/Header';
+import ProductList from './components/ProductList';
 
-function App() {
+const App: React.FC = () => {
+    return (
+        <div>
+            <Header />
+            <main>
+                <ProductList />
+            </main>
+        </div>
+    );
+};
 
-  return (
-    <h1 className="text-3xl text-center font-bold underline">
-      Hello world!
-    </h1>  )
-}
-
-export default App
+export default App;
