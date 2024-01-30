@@ -8,6 +8,7 @@ const Header: React.FC = () => {
         <nav>
             <a href="/" className="inline-block p-2 hover:bg-blue-700 rounded">Home</a>
             <a href="/cart" className="inline-block p-2 hover:bg-blue-700 rounded">Cart</a>
+            <a href="/login" className="inline-block p-2 hover:bg-blue-700 rounded">Login</a>
             // Add more navigation links as needed
         </nav>
     </div>
