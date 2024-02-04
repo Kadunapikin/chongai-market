@@ -30,24 +30,6 @@ export const authSlice = createSlice({
       state.isError = true;
       state.message = action.payload; // Payload is the error message.
     },
-    requestSignup: (state) => {
-        state.isLoading = true;
-      },
-      signupSuccess: (state, action) => {
-        state.isLoading = false;
-        state.user = action.payload; // Consider what you want to store in state upon signup
-        state.error = '';
-      },
-      signupFailure: (state, action) => {
-        state.isLoading = false;
-        state.error = action.payload;
-      },
-      // Optionally, add a logout reducer to reset the state
-      logout: (state) => {
-        state.user = null;
-        state.isLoading = false;
-        state.error = '';
-      },
   },
 });
 
