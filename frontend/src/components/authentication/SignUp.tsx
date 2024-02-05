@@ -1,14 +1,26 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { requestSignup, signupSuccess, signupFailure } from '../../features/auth/authSlice';
+
 
 const SignUp: React.FC = () => {
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const handleSubmit = (event: React.FormEvent) => {
+    const handleSubmit = async (event: React.FormEvent) => {
         event.preventDefault();
-        // Handle login logic here
-        console.log(email, password);
+        const dispatch = useDispatch(); // Initialize dispatch
+    
+        dispatch(requestSignup());
+        try {
+            // Simulate API call for signup
+            const userData = { email, username }; // Assume success and mock response
+            dispatch(signupSuccess(userData));
+            // Handle post-signup logic, like UI update or redirection
+        } catch (error) {
+            dispatch(signupFailure('Failed to sign up'));
+        }
     };
 
     return (
