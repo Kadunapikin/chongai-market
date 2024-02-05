@@ -1,13 +1,26 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { requestLogin, loginSuccess, loginFailure } from '../../features/auth/authSlice';
+
 
 const Login: React.FC = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const handleSubmit = (event: React.FormEvent) => {
+
+    const handleSubmit = async (event: React.FormEvent) => {
         event.preventDefault();
-        // Handle login logic here
-        console.log(email, password);
+        const dispatch = useDispatch(); // Initialize dispatch
+
+        dispatch(requestLogin());
+        try {
+            // Simulate API call
+            const userData = { email, username: 'John Doe' }; // Mock response
+            dispatch(loginSuccess(userData));
+            // Redirect the user or update UI upon success
+        } catch (error) {
+            dispatch(loginFailure('Failed to login'));
+        }
     };
 
     return (
