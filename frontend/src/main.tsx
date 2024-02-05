@@ -1,11 +1,11 @@
+// src/index.tsx
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import { store } from './store';
 import { Provider } from 'react-redux';
+import { store } from './app/store';
 
-// Use the Provider component to pass the Redux store to React.
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
